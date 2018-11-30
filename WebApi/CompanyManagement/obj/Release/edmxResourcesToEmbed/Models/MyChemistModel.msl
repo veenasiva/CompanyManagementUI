@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="MyChemistModelStoreContainer" CdmEntityContainer="MyChemistEntities">
+    <EntitySetMapping Name="Companies">
+      <EntityTypeMapping TypeName="MyChemistModel.Company">
+        <MappingFragment StoreEntitySet="Company">
+          <ScalarProperty Name="IsDuplicate" ColumnName="IsDuplicate" />
+          <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+          <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+          <ScalarProperty Name="ContactPerson" ColumnName="ContactPerson" />
+          <ScalarProperty Name="CompanyEmail" ColumnName="CompanyEmail" />
+          <ScalarProperty Name="CompanyPhone" ColumnName="CompanyPhone" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
