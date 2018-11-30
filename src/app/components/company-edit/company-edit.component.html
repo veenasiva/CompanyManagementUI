@@ -1,0 +1,68 @@
+<mat-card >
+  <form #companyForm="ngForm" (ngSubmit)="save(companyForm.value)">
+	<mat-card-header>
+  	<mat-card-title>
+    	<h2>Edit Company</h2>
+  	</mat-card-title>
+	</mat-card-header>
+	<mat-card-content>
+    <table>
+     
+      <tr>
+        <td>
+          <input type="hidden" name="CompanyID" [(ngModel)]="company.CompanyID">
+          <input type="hidden" name="IsDuplicate" [(ngModel)]="company.IsDuplicate">
+          <mat-form-field>
+            <input matInput placeholder="Company Name" [(ngModel)]="company.CompanyName" required name="CompanyName">
+          </mat-form-field>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <mat-form-field>
+          <input matInput placeholder="ContactPerson" [(ngModel)]="company.ContactPerson" name="ContactPerson" [readonly]="company.IsDuplicate">
+        </mat-form-field>
+      </td>
+    </tr>
+    <tr>
+        <td>
+          <mat-form-field>
+              
+            <input matInput placeholder="Email" [(ngModel)]="company.CompanyEmail" required name="CompanyEmail"
+            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" #emailref="ngModel" [readonly]="company.IsDuplicate">
+
+            <mat-error *ngIf="emailref.errors ">
+                Please enter a valid email address
+              </mat-error>
+
+          </mat-form-field>
+        </td>
+      </tr>
+      <tr>
+          <td>
+            <mat-form-field>
+              <input matInput placeholder="Phone" [(ngModel)]="company.CompanyPhone" required  name="CompanyPhone"
+              pattern="^\\(?(0)[0-9]{1}\\)?[ -]?[0-9]{2}[ -]?[0-9]{2}[ -]?[0-9][ -]?[0-9]{3}$"  #phoneref="ngModel" [readonly]="company.IsDuplicate">
+              <mat-error *ngIf="phoneref.errors ">
+                  Please enter a valid phone
+                </mat-error>
+            </mat-form-field>
+          </td>
+        </tr>
+
+  </table>
+	</mat-card-content>
+	<mat-card-actions>
+  	<button mat-raised-button color="primary" type="submit" [disabled]="!companyForm.form.valid || !companyForm.dirty">Save
+  	</button>
+    <a  mat-button *ngIf="company.IsDuplicate" (click)="remove(company.CompanyID)">
+        Delete
+    </a>
+  	<a mat-button (click)="gotoList()">Cancel</a>
+	</mat-card-actions>
+	<mat-card-footer>
+
+  </mat-card-footer>
+  <h5 class="text-danger">{{errorMsg}}</h5>
+  </form>
+</mat-card>

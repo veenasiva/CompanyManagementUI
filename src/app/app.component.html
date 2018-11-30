@@ -1,0 +1,30 @@
+<div class="row">
+
+    <div class="col-md-10">
+        <div style="text-align:center">
+            <h2 class="jumbotron bg-secondary text-white">Company Management Module</h2>
+        </div>
+        <div>
+            <nav>
+              <hr/>
+            <span>
+                <button mat-button routerLink="/create">Create</button>
+              
+            </span>
+            <span>
+                <button mat-button routerLink="/manage">Manage</button>
+              
+            </span>
+            <span>
+                <button mat-button routerLink="/tools">Tools</button>
+              
+            </span>
+            <hr/>
+          </nav>
+         </div>
+        <br />
+        <div class='row container'>
+        <router-outlet></router-outlet>
+        </div>
+    </div>
+</div>

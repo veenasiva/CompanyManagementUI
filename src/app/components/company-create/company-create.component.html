@@ -1,0 +1,20 @@
+<div>
+
+    <h2>Create New Company</h2>
+    <form class="company-form" [formGroup]="detailsForm" (ngSubmit)="onSubmit()">
+      <mat-form-field class="company-full-width">
+        <input matInput formControlName="companyName" placeholder="Company Name" />
+      </mat-form-field>
+      <mat-form-field class="company-full-width">
+        <input matInput formControlName="contactPerson" placeholder="Company Contact Person" />
+      </mat-form-field>
+      <mat-form-field class="company-full-width">
+        <input matInput formControlName="companyEmail" placeholder="Company Email" />
+      </mat-form-field>
+      <mat-form-field class="company-full-width">
+        <input matInput formControlName="companyPhone" placeholder="Company Phone" />
+      </mat-form-field>
+      <button mat-raised-button type="submit" [disabled]="!detailsForm.valid" >Save</button>&nbsp;
+      <button mat-raised-button type="reset">Cancel</button>
+    </form>
+  </div>

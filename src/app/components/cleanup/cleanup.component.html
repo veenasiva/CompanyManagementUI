@@ -1,0 +1,9 @@
+<table class="table table-sm table-hover">
+    <tr>
+        <th>Name(Duplicates Found)</th>
+    </tr>
+    <tr *ngFor="let company of companies">
+      <a mat-button [routerLink]="['/edit', company.CompanyName]"><td>{{company.CompanyName}}({{company.Count}})</td></a>  
+
+    </tr>
+</table>
